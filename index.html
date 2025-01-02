@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Công Chúa </title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #fce4ec;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #880e4f;
+            animation: fadeIn 2s ease-out;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 3em;
+            text-align: center;
+            color: #ad1457;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 0.5s forwards;
+        }
+
+        p {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Chỉnh thành 3 cột */
+            gap: 15px;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 1s forwards;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            border: 3px solid #f8bbd0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.4em;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 1.5s forwards;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #d81b60;
+            text-decoration: underline;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #ad1457;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chúc Mừng Sinh Nhật Công Chúa!</h1>
+    <p>Click vào <span class="highlight"> từng ảnh </span> nhe bà!</p>
+    <div class="gallery">
+        <div class="img-container">
+            <img src="1.jpg" alt="Ảnh 1" data-message="Chúc MH luôn vuii!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="2.jpg" alt="Ảnh 2" data-message="Chúc MH gặp nhiều may mắn lun nhó!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="3.jpg" alt="Ảnh 3" data-message="Chúc MH có thiệt nhiều tiềnnnnn!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="4.jpg" alt="Ảnh 4" data-message="Chúc MH lúc nào cũng hạnh phúc bên người ấy!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="5.jpg" alt="Ảnh 5" data-message="Chúc MH lúc nào cũng tích cực yêu đời!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="6.jpg" alt="Ảnh 6" data-message="Chúc MH đẹp điênn luôn!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="7.jpg" alt="Ảnh 7" data-message="Chúc MH đậu tốt nghiệp sớm thiet sớm!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="8.jpg" alt="Ảnh 8" data-message="Chúc MH đậu bằng lái xe cái một!">
+            <div class="message-box hidden"></div>
+        </div>
+        <div class="img-container">
+            <img src="9.jpg" alt="Ảnh 9" data-message="Chúc MH yêu tôi nhiều hơn năm ngoái hehehe!">
+            <div class="message-box hidden"></div>
+        </div>
+       
+    </div>
+    <div class="footer">
+        <p>Chúc Mỹ Hạnh <span class="highlight"> luôn hạnh phúc</span> và <span class="highlight">xinh đẹp</span> ạ!</p>
+        <p><strong>Happy Birthdayyyyyyy</strong></p>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+        
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                // Ẩn ảnh
+                img.classList.add('hidden');
+
+                // Lấy lời chúc từ thuộc tính data-message
+                const message = img.getAttribute('data-message');
+
+                // Tạo một phần tử mới để hiển thị lời chúc
+                const messageBox = img.nextElementSibling;
+                messageBox.textContent = message;
+                messageBox.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
